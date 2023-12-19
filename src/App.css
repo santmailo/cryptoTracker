@@ -12,8 +12,8 @@
 
 body{
   margin: 0;
-  height: 200vh;
   font-family: 'Inter', sans-serif;
+  background-color: var(--black);
 }
 
 ::selection{
@@ -32,4 +32,9 @@ body{
 ::-webkit-scrollbar-thumb{  
   background: var(--blue);
   border-radius: 0.3rem;
+}
+
+a{
+  color: var(--white) !important;
+  text-decoration: none;
 }
