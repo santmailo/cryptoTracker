@@ -1,0 +1,57 @@
+.flex-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 3rem;
+}
+
+/* left component styling below this line */
+
+.leftComponent{
+
+}
+
+.trackCryptoHeading, .realTimeHeading{
+  font-size: 8rem;
+  color: var(--white);
+  margin: 0;
+}
+
+.trackCryptoHeading{
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: var(--white);
+}
+
+.trackCryptoHeading:hover{
+  color: var(--black);
+  -webkit-text-stroke-width: 3px;
+  transition: all 0.5s;
+}
+
+.trackCryptoHeading::selection{
+  color: var(--green);
+}
+
+.realTimeHeading{
+  color: var(--blue);
+}
+
+.btn-flex{
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+/* right component styling below this line */
+
+.rightComponent{
+
+}
+
+/* paragraph below heading styling below this line */
+
+.desc{
+  color: var(--grey)
+}

@@ -14,6 +14,7 @@
 .btn:hover{
   box-shadow: 5px 5px 10px rgba(58, 128, 233, 0.5);
   background-color: var(--blue);
+  /* color: var(--black); */
   transition: all 0.3s;
 }
 
