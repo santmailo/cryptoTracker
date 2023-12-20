@@ -37,6 +37,7 @@
 
 .mobile-drawer{
   display: none;
+  /* width: 40vw; */
 }
 
 
@@ -59,7 +60,7 @@
   }
 
   .mobile-menu-links{
-    width: 40vh;
+    width: 40vw;
     background: var(--black);
     height: 100vh;
     padding: 1.5rem;
