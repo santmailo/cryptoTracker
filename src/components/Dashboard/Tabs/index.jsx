@@ -7,6 +7,8 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import "./styles.css";
 import { ThemeProvider, createTheme } from "@mui/material";
+import GridView from "../Grid";
+import ListView from "../List";
 
 export default function TabsComponent({ coins }) {
   const [value, setValue] = React.useState("grid");
@@ -41,17 +43,18 @@ export default function TabsComponent({ coins }) {
             </TabList>
           </Box>
           <TabPanel value="grid">
-            {coins.map((coin) => {
-              return (
-                <div key={coin.id}>
-                  <img src={coin.image} />
-                  <p>{coin.name} </p>
-                </div>
-              );
-            })}
+            <div className="gridView">
+              {coins.map((coin) => (
+                <GridView key={coin.id} coin={coin} />
+              ))}
+            </div>
           </TabPanel>
           <TabPanel value="list">
-            <div></div>
+            <table className="listView">
+              {coins.map((coin) => (
+                <ListView key={coin.id} coin={coin} />
+              ))}
+            </table>
           </TabPanel>
         </TabContext>
       </Box>

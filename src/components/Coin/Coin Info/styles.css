@@ -1,0 +1,18 @@
+.coinInfo-header {
+}
+
+.coinInfo-desc {
+}
+
+.coinInfo-desc a {
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+.coinInfo-desc a:hover {
+  color: var(--blue) !important;
+}
+
+.readMore {
+  color: var(--grey);
+}

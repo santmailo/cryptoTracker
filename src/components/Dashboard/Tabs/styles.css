@@ -1,0 +1,17 @@
+.gridView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 1rem;
+  flex-wrap: wrap;
+}
+
+.listView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 1rem;
+  flex-wrap: wrap;
+}

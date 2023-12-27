@@ -1,0 +1,142 @@
+/* Main container which contains all the elements */
+
+.coin-grid-container {
+  width: 250px;
+  height: 250px;
+  background-color: var(--darkgrey);
+  border: 2px solid var(--darkgrey);
+  border-radius: 0.75rem;
+  padding: 1.5rem 2rem;
+}
+
+.coin-grid-container:hover {
+  border: 2px solid var(--green);
+  transition: all 1s;
+}
+
+.coin-grid-container-negative:hover {
+  border: 2px solid var(--red);
+}
+
+/* coin header containes image , name and symbol */
+
+.coin-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.coin-img {
+  /* coin img container */
+  width: 40px;
+  height: 40px;
+}
+
+.coin-img > img {
+  width: 100%;
+}
+
+.coin-symbol {
+  text-transform: uppercase;
+  font-size: large;
+  margin: 0;
+  font-weight: 600;
+}
+
+.coin-name {
+  text-transform: capitalize;
+  margin: 0;
+  font-size: small;
+  font-weight: 600;
+  color: var(--grey);
+}
+
+/* coin recent change updates which conaines last 24 hour changes in percent*/
+
+.coin-changes {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+}
+
+.recent-changes {
+  padding: 0.4rem 1.3rem;
+  font-size: medium;
+}
+
+.changes-plus {
+  border-radius: 2rem;
+  border: 3px solid var(--green);
+  color: var(--green);
+}
+
+.changes-minus {
+  border-radius: 2rem;
+  border: 2.5px solid var(--red);
+  color: var(--red);
+}
+
+/* coin value icons */
+
+.coin-price-icons-positive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--green);
+  color: var(--green);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.coin-price-icons-negative {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  border: 3px solid var(--red);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.recent-changes:hover,
+.coin-price-icons-positive:hover,
+.coin-price-icons-negative:hover {
+  color: var(--white);
+  transition: all 0.75s;
+}
+
+.changes-plus:hover,
+.coin-price-icons-positive:hover {
+  background-color: var(--green);
+}
+
+.changes-minus:hover,
+.coin-price-icons-negative:hover {
+  background-color: var(--red);
+}
+/* current price and market volume styling below */
+
+.coin_market {
+  /* main div */
+}
+
+.current_price {
+  font-size: large;
+  color: var(--green);
+  font-weight: 600;
+}
+
+.current_price_negative {
+  color: var(--red);
+}
+
+.total_volume,
+.market_cap {
+  font-size: small;
+  font-weight: 550;
+  color: var(--grey);
+}
