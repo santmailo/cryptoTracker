@@ -1,4 +1,5 @@
-export function coinObject(setState, data) {
+export function convertObject(setState, data) {
+  console.log("convertObject function ran");
   return setState({
     id: data.id,
     name: data.name,
