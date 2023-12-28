@@ -9,7 +9,7 @@ import { getCoinData } from "../functions/getCoinData";
 import { getCoinPrices } from "../functions/getCoinPrices";
 // import { convertDate } from "../functions/convertDate";
 import SelectDays from "../components/Coin/SelectDays";
-import { settingChartData } from "../functions/settingChartData";
+import settingChartData from "../functions/settingChartData";
 
 function CoinPage() {
   const { id } = useParams();
@@ -26,24 +26,31 @@ function CoinPage() {
   }, [id]);
 
   async function getData() {
+    setIsLoading(true);
     const data = await getCoinData(id); // fething
 
     if (data) {
       convertObject(setCoinData, data);
+      const prices = await getCoinPrices(id, 7); // fething
+
+      if (prices.length > 0) {
+        settingChartData(setChartData, prices);
+        setIsLoading(false);
+      }
     }
-    const prices = await getCoinPrices(id, days); // fething
+  }
+
+  async function handleDaysChange(event) {
+    console.log("handle days change function");
+    setIsLoading(true);
+    const prices = await getCoinPrices(id, event.target.value); // fething
 
     if (prices.length > 0) {
       settingChartData(setChartData, prices);
+      setIsLoading(false);
     }
-    setIsLoading(false);
-    d;
+    setDays(event.target.value);
   }
-
-  // async function handleDaysChange(event) {
-  //   // setIsLoading(true);
-  //   // setDays(event.target.value);
-  // }
 
   return (
     <>
@@ -55,7 +62,7 @@ function CoinPage() {
             <ListView coin={coinData} />
           </div>
           <div className="greyWrapper">
-            <SelectDays days={days} />
+            <SelectDays days={days} handleDaysChange={handleDaysChange} />
             <LineChart chartData={chartData} />
           </div>
           <CoinInfo coin={coinData} />

@@ -27,13 +27,13 @@ export default function SelectDays({ days, handleDaysChange }) {
         id="demo-simple-select"
         value={days}
         label="Days"
-        onChange={(e) => handleDaysChange(e)}
+        onChange={handleDaysChange}
       >
         <MenuItem value={7}>7 Days</MenuItem>
         <MenuItem value={30}>30 Days</MenuItem>
         <MenuItem value={60}>60 Days</MenuItem>
         <MenuItem value={90}>90 Days</MenuItem>
-        <MenuItem value={360}>120 Days</MenuItem>
+        <MenuItem value={360}>360 Days</MenuItem>
       </Select>
     </div>
   );
