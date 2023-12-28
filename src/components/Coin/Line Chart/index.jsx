@@ -1,7 +1,7 @@
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto"; //Dont get rid of this
+import { convertNumber } from "../../../functions/convertNumber";
 
-// eslint-disable-next-line react/prop-types
 function LineChart({ chartData, priceTypes, multiAxis }) {
   const options = {
     plugins: {
@@ -13,6 +13,19 @@ function LineChart({ chartData, priceTypes, multiAxis }) {
     interactions: {
       mode: "index",
       interactions: false,
+    },
+    scales: {
+      y: {
+        ticks: {
+          // Include a dollar sign in the ticks
+          callback: function (value, index, ticks) {
+            if (priceTypes == "prices") return "$" + value.toLocaleString();
+            else {
+              return "$" + convertNumber(value);
+            }
+          },
+        },
+      },
     },
   };
 

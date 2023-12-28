@@ -4,6 +4,7 @@ import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import { Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
+import { convertNumber } from "../../../functions/convertNumber";
 
 // eslint-disable-next-line react/prop-types
 
@@ -62,18 +63,18 @@ function ListView({ coin }) {
                   : "coin_price current_price current_price_negative"
               }
             >
-              ${coin.current_price.toLocaleString()}
+              ${convertNumber(coin.current_price)}
             </span>
           </Tooltip>
           <div className="market-volume">
             <Tooltip title="Total Volume">
               <span className="coin-info">
-                $ {coin.total_volume.toLocaleString()}
+                $ {convertNumber(coin.total_volume)}
               </span>
             </Tooltip>
             <Tooltip title="Market Cap">
               <span className="coin-info">
-                $ {coin.market_cap.toLocaleString()}
+                $ {convertNumber(coin.market_cap)}
               </span>
             </Tooltip>
           </div>

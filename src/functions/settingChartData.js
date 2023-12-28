@@ -1,7 +1,6 @@
 import { convertDate } from "./convertDate";
 
 export default function settingChartData(setChartData, prices) {
-  console.log("settingChartData function ran");
   return setChartData({
     labels: prices.map((price) => convertDate(price[0])),
     datasets: [
@@ -12,7 +11,7 @@ export default function settingChartData(setChartData, prices) {
         fill: true,
         tension: 0.25,
         backgroundColor: "rgba(58, 128, 233, 0.1)",
-        pointRadius: 0,
+        pointRadius: 2,
       },
     ],
   });

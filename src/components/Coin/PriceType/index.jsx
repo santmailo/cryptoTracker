@@ -1,37 +1,41 @@
-import * as React from "react";
-import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
-import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
-import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
-import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import "./styles.css";
 
-export default function PriceType() {
-  const [alignment, setAlignment] = React.useState("left");
-
-  const handleAlignment = (event, newAlignment) => {
-    setAlignment(newAlignment);
-  };
-
+export default function TogglePriceType({ priceType, handlePriceTypeChange }) {
   return (
-    <ToggleButtonGroup
-      value={alignment}
-      exclusive
-      onChange={handleAlignment}
-      aria-label="text alignment"
-    >
-      <ToggleButton value="left" aria-label="left aligned">
-        <FormatAlignLeftIcon />
-      </ToggleButton>
-      <ToggleButton value="center" aria-label="centered">
-        <FormatAlignCenterIcon />
-      </ToggleButton>
-      <ToggleButton value="right" aria-label="right aligned">
-        <FormatAlignRightIcon />
-      </ToggleButton>
-      <ToggleButton value="justify" aria-label="justified" disabled>
-        <FormatAlignJustifyIcon />
-      </ToggleButton>
-    </ToggleButtonGroup>
+    <div className="toggle-prices">
+      <ToggleButtonGroup
+        color="primary"
+        value={priceType}
+        exclusive
+        onChange={handlePriceTypeChange}
+        sx={{
+          "&.Mui-selected": {
+            color: "var(--blue) !important",
+          },
+          borderColor: "var(--blue)",
+          border: "unset !important",
+          "& .MuiToggleButtonGroup-grouped": {
+            border: "1px solid !important",
+            borderColor: "unset",
+            color: "var(--blue)",
+          },
+          "& .MuiToggleButton-standard": {
+            color: "var(--blue)",
+          },
+        }}
+      >
+        <ToggleButton value="prices" className="toggle-btn">
+          Price
+        </ToggleButton>
+        <ToggleButton value="market_caps" className="toggle-btn">
+          Market Cap
+        </ToggleButton>
+        <ToggleButton value="total_volumes" className="toggle-btn">
+          Total Volume
+        </ToggleButton>
+      </ToggleButtonGroup>
+    </div>
   );
 }

@@ -10,6 +10,7 @@ import { getCoinPrices } from "../functions/getCoinPrices";
 // import { convertDate } from "../functions/convertDate";
 import SelectDays from "../components/Coin/SelectDays";
 import settingChartData from "../functions/settingChartData";
+import TogglePriceType from "../components/Coin/PriceType";
 
 function CoinPage() {
   const { id } = useParams();
@@ -17,6 +18,7 @@ function CoinPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [coinData, setCoinData] = useState({});
   const [chartData, setChartData] = useState({});
+  const [priceType, setPriceType] = useState("prices");
 
   useEffect(() => {
     setIsLoading(true);
@@ -31,7 +33,7 @@ function CoinPage() {
 
     if (data) {
       convertObject(setCoinData, data);
-      const prices = await getCoinPrices(id, 7); // fething
+      const prices = await getCoinPrices(id, days, priceType); // fething
 
       if (prices.length > 0) {
         settingChartData(setChartData, prices);
@@ -41,15 +43,25 @@ function CoinPage() {
   }
 
   async function handleDaysChange(event) {
-    console.log("handle days change function");
     setIsLoading(true);
-    const prices = await getCoinPrices(id, event.target.value); // fething
+    const prices = await getCoinPrices(id, event.target.value, priceType); // fething
 
     if (prices.length > 0) {
       settingChartData(setChartData, prices);
       setIsLoading(false);
     }
     setDays(event.target.value);
+  }
+
+  async function handlePriceTypeChange(event) {
+    setIsLoading(true);
+    const prices = await getCoinPrices(id, days, event.target.value); // fething
+
+    if (prices.length > 0) {
+      settingChartData(setChartData, prices);
+      setIsLoading(false);
+    }
+    setPriceType(event.target.value);
   }
 
   return (
@@ -63,7 +75,11 @@ function CoinPage() {
           </div>
           <div className="greyWrapper">
             <SelectDays days={days} handleDaysChange={handleDaysChange} />
-            <LineChart chartData={chartData} />
+            <TogglePriceType
+              priceType={priceType}
+              handlePriceTypeChange={handlePriceTypeChange}
+            />
+            <LineChart chartData={chartData} priceTypes={priceType} />
           </div>
           <CoinInfo coin={coinData} />
         </>

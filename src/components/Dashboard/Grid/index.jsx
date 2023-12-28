@@ -3,6 +3,7 @@ import "./styles.css";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import { Link } from "react-router-dom";
+import { convertNumber } from "../../../functions/convertNumber";
 
 function GridView({ coin }) {
   return (
@@ -58,10 +59,10 @@ function GridView({ coin }) {
             ${coin.current_price.toLocaleString()}
           </p>
           <p className="total_volume">
-            Total Volume : ${coin.total_volume.toLocaleString()}
+            Total Volume : ${convertNumber(coin.total_volume)}
           </p>
           <p className="market_cap">
-            Market Cap : ${coin.market_cap.toLocaleString()}
+            Market Cap : ${convertNumber(coin.market_cap)}
           </p>
         </div>
       </div>
