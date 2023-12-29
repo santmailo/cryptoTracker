@@ -1,18 +1,48 @@
 import { convertDate } from "./convertDate";
 
-export default function settingChartData(setChartData, prices) {
-  return setChartData({
-    labels: prices.map((price) => convertDate(price[0])),
-    datasets: [
-      {
-        data: prices.map((price) => price[1]),
-        borderColor: "#3a80e9",
-        borderWidth: 2,
-        fill: true,
-        tension: 0.25,
-        backgroundColor: "rgba(58, 128, 233, 0.1)",
-        pointRadius: 2,
-      },
-    ],
-  });
+export default function settingChartData(setChartData, prices1, prices2) {
+  if (prices2) {
+    setChartData({
+      labels: prices1.map((price) => convertDate(price[0])),
+      datasets: [
+        {
+          label: "Crypto1",
+          data: prices1.map((price) => price[1]),
+          borderColor: "#3a80e9",
+          borderWidth: 2,
+          fill: true,
+          tension: 0.25,
+          pointRadius: 2,
+          yAxisID: "Crypto1",
+        },
+        {
+          label: "Crypto2",
+          data: prices2.map((price) => price[1]),
+          borderColor: "#61c96f",
+          borderWidth: 2,
+          fill: true,
+          tension: 0.25,
+          pointRadius: 2,
+          yAxisID: "Crypto2",
+        },
+      ],
+    });
+  } else {
+    setChartData({
+      labels: prices1.map((price) => convertDate(price[0])),
+      datasets: [
+        {
+          label: "Crypto",
+          data: prices1.map((price) => price[1]),
+          borderColor: "#3a80e9",
+          borderWidth: 2,
+          fill: true,
+          tension: 0.25,
+          backgroundColor: "rgba(58, 128, 233, 0.1)",
+          pointRadius: 2,
+          yAxisID: "Crypto2",
+        },
+      ],
+    });
+  }
 }

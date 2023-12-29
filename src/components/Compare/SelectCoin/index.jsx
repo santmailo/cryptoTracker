@@ -2,7 +2,6 @@ import { MenuItem, Select } from "@mui/material";
 import "./styles.css";
 import { useEffect, useState } from "react";
 import { get100Coins } from "../../../pages/get100Coins";
-import Loader from "../../Common/Loader";
 
 // eslint-disable-next-line react/prop-types
 function SelectCoin({ crypto1, crypto2, handleCoinChange }) {
@@ -42,11 +41,15 @@ function SelectCoin({ crypto1, crypto2, handleCoinChange }) {
         label="Crypto 1"
         onChange={(e) => handleCoinChange(e, false)}
       >
-        {allCoins.map((coin) => (
-          <MenuItem key={coin.id} value={coin.id}>
-            {coin.name}
-          </MenuItem>
-        ))}
+        {allCoins.map((coin) =>
+          coin.id != crypto2 ? (
+            <MenuItem key={coin.id} value={coin.id}>
+              {coin.name}
+            </MenuItem>
+          ) : (
+            ""
+          )
+        )}
       </Select>
 
       <p>Crypto 2</p>
@@ -56,11 +59,15 @@ function SelectCoin({ crypto1, crypto2, handleCoinChange }) {
         label="Crypto 2"
         onChange={(e) => handleCoinChange(e, true)}
       >
-        {allCoins.map((coin) => (
-          <MenuItem key={coin.id} value={coin.id}>
-            {coin.name}
-          </MenuItem>
-        ))}
+        {allCoins.map((coin) =>
+          coin.id != crypto1 ? (
+            <MenuItem key={coin.id} value={coin.id}>
+              {coin.name}
+            </MenuItem>
+          ) : (
+            ""
+          )
+        )}
       </Select>
     </div>
   );
