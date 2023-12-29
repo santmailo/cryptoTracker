@@ -14,7 +14,7 @@ function Header() {
         <Link to="/">
           <p className="link">Home</p>
         </Link>
-        <Link to="/">
+        <Link to="/compare">
           <p className="link">Compare</p>
         </Link>
         <Link to="/">

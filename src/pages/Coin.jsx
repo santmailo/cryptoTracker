@@ -11,6 +11,7 @@ import { getCoinPrices } from "../functions/getCoinPrices";
 import SelectDays from "../components/Coin/SelectDays";
 import settingChartData from "../functions/settingChartData";
 import TogglePriceType from "../components/Coin/PriceType";
+import Header from "../components/Common/Header";
 
 function CoinPage() {
   const { id } = useParams();
@@ -70,6 +71,7 @@ function CoinPage() {
         <Loader />
       ) : (
         <>
+          <Header />
           <div className="greyWrapper">
             <ListView coin={coinData} />
           </div>
